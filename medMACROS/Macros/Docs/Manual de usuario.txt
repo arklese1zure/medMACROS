@@ -1,0 +1,102 @@
+﻿==========================================
+|||||	mediMACROS - Manual del Usuario	|||||
+==========================================
+
+El programa MediMACROS está diseñado para automatizar tareas repetitivas durante la consulta o realización de notas.
+	
+###############Sección 1 -- Funciones del programa###############
+MediMACROS posee una serie de funciones que se activan a nivel del sistema, los cuales se describen a continuación:
+
+##Autocompletar##
+La función Autocompletar permite al usuario crear "abreviaturas", las cuales consisten en pequeños fragmentos que, al ser escritos, serán reconocidos por el programa y automáticamente serán sustituidos por otra palabra u oración que el usuario haya configurado.
+Algunas situaciones en las cuales sería útil esta función podrían ser:
+-Cambiar el nombre comercial de un medicamento por su nombre genérico.
+-Escribir abreviaturas o siglas y que éstas se autocompleten.
+-Escribir una palabra clave para que se sustituya por una firma o frase repetitiva que se tenga que agregar de manera habitual a algún documento.
+
+##Autotexto##
+La función de autotexto permite insertar de manera automatizada grandes cantidades de texto, útil cuando la función Autocompletar es impráctica.
+Al presionar la combinación de teclas CTRL+F2, se desplegará el menú de Autotexto, en el cual se mostrará una lista de los fragmentos de texto que se tengan guardados en la carpeta especial de "Autotexto", la cual se ubica en la ubicación del programa MediMACROS. Luego de que se haya desplegado el menú, navegue con las teclas de flechas en su teclado hasta encontrar el texto que desee, y a continuación presione "OK" en el menú o presione la tecla Enter en su teclado. El fragmento de texto se insertará en el lugar donde usted se encuentre escribiendo actualmente.
+•Agregar o quitar fragmentos de texto: Abra la carpeta de "Autotexto", a la cual puede acceder desde la pestaña "Formatos", y a continuación agregue un nuevo archivo de texto que contenga lo que desee escribir.
+IMPORTANTE: La función Autocompletar admite UNICAMENTE archivos de texto (.txt). NO FUNCIONARÁ si agrega archivos de Word, Excel, u otros.
+
+###############Sección 2 -- Menús################################
+
+-- Menú principal --
+Se puede acceder a este menú haciendo clic en el botón ubicado en la esquina superior derecha de la ventana de MediMACROS.
+
+• Mantener visible: Al palomear esta opción, la ventana del programa MediMACROS permanecerá encima de todas las demás, facilitando su acceso.
+• No suspender: Al seleccionar esta opción, el programa MediMACROS evitará que el equipo entre automáticamente en suspensión.
+• Desactivar autocompletar: Deshabilita los atajos de teclado y la función de autocompletar de MediMACROS.
+• Editor de Texto: Abre el editor de texto para consulta (ver sección Editor de texto).
+• Ajustes: Abre la ventana de configuración de MediMACROS (ver sección Configuración).
+• Ayuda: Muestra temas de ayuda.
+• Apagar Equipo: Cierra todos los programas abiertos y muestra el menú de apagado. Asegúrese de guardar todos los archivos antes de usar esta función.
+• Salir: Cierra el programa MediMACROS.
+	
+-- Menú rápido --
+El menú rápido muestra opciones rápidas para configurar MediMACROS, así como algunos atajos a funciones comunes.
+Se puede acceder haciendo clic en el botón de acceso rápido o en el ícono de la badeja.
+
+###############Sección 3 -- Interfaz de Usuario##################
+
+Aquí se describen las funciones contenidas en las pestañas de la interfaz principal de MediMACROS.
+
+##Botón de acceso rápido##
+El botón de acceso rápido es un pequeño elemento gráfico que persiste sobre todas las ventanas del sistema.
+Sus funciones son:
+1. Clic: Ocultar y mostrar la ventana de MediMACROS.
+2. Clic derecho: Menú rápido, contiene funciones que se pueden ajustar sin tener que abrir la ventana principal de MediMACROS.
+
+##Administrador de contraseñas##
+Aquí se mostrarán los inicios de sesión guardados. 
+•Botón "Abrir": se abrirá la dirección web o carpeta seleccionada.
+•Botón "Iniciar sesión": ingresará los datos de inicio de sesión.
+•Agregar contraseña nueva: Presione el botón "Opciones" o seleccione la opción "Nueva contraseña..." en el menú contextual al hace clic derecho sobre el campo.
+•Quitar contraseña guardada: Seleccione la entrada en la lista y haga clic derecho o presione el botón "Opciones", posteriormente seleccione "Eliminar".
+
+##Pestaña Archivos##
+En este apartado se encuentra una lista de los archivos almacenados por MediMACROS para su fácil acceso.
+MediMACROS permite incluso agregar subcarpetas para una mejor organización.
+•Abrir un archivo: Seleccione el archivo o carpeta y haga doble clic sobre el mismo, o de clic derecho y seleccione "Abrir".
+•Eliminar archivos y carpetas: Haga clic derecho sobre el elemento a eliminar y seleccione "Eliminar", o seleccione "Eliminar" desde el menú de opciones.
+
+-- Accesos directos --
+Esta función permite crear accesos directos a archivos frecuentemente usados.
+Los accesos directos serán guardados en la carpeta con el mismo nombre, y se pueden ver desde la pestaña de archivos.
+•Agregar un acceso directo: Haga clic en el botón "Opciones" y seleccione un "Nuevo acceso directo".
+•Quitar un acceso directo: Haga clic derecho sobre el acceso que desee quitar y seleccione "Eliminar".
+•Abrir un acceso directo: Seleccione el acceso directo en la lista y haga doble clic, o dé clic derecho y seleccione "Abrir".
+	
+##Pestaña Autocompletar##
+Aquí se muestra una lista de atajos de teclado. Mientras esté abierto el programa "MediMACROS", cada vez que se escriba alguna de estas abreviaturas el programa las autocompletará. Esta función aplica en cualquier programa donde se esté escribiendo.
+Por ejemplo, si se escribe "DM2", el programa lo sustituirá por "DIABETES MELLITUS TIPO 2".
+•Nueva abreviatura: Al presionar este botón aparecerá una interfaz que deja al usuario crear sus propias abreviaturas para que el programa las autocomplete.
+•Quitar abreviatura: Seleccione la abreviatura que desea retirar y presione "-", o haga clic derecho sobre la abreviatura que desee eliminar y seleccione "eliminar abreviatura".
+•Deshabilitar abreviaturas: Seleccione en el menú principal de MediMACROS o en el menú rápido la opción "Desactivar Autocompletar".
+
+##Pestaña Notas##
+Aquí se muestra un campo donde puede copiar y pegar texto, escribir recordatorios o guardar fragmentos de texto, no tiene límite de espacio. Útil como espacio para guardar texto de manera temporal.
+•Borrar las notas: Presione el botón con el icono de basura.
+•Guardar las notas: Presione el icono de diskette. Las notas permanecerán guardadas cuando cierre y vuelva a abrir MediMACROS.
+
+-- Sección Herramientas --
+En esta lista se muestran algunas utilerías, para visualizarlas despliegue la lista. Para abrirlas seleccione un elemento y haga clic sobre él.
+NOTA: Algunas de estas utilerías son recursos de Internet, y están sujetos a cambio sin previo aviso.
+
+###############Sección 4 -- Ajustes###############
+Para entrar a la ventana de ajustes, entre al menú principal y seleccione "Opciones".
+
+-- Sección Datos de usuario--
+•Nombre: Nombre del usuario.
+•Lugar de trabajo: Dato opcional.
+
+-- Sección Extensiones para MediMACROS --
+La función de Extensiones permite agregar nuevas funciones de manera dinámica a MediMACROS.
+Las extensiones son scripts de AutoHotKey con formato especial, que permiten agregar funciones nuevas o extender los elementos ya presentes en MediMACROS, que abarcan desde la interfaz de usuario, atajos de teclado, nuevas interfaces de usuario, etc.
+•Cargar extensión: Al presionar este botón, se podrá elegir un archivo de extensión MediMACROS.
+•Desactivar extensión: Desactiva la extensión actualmente cargada, retirando las funciones nuevas que se hubieran agregado.
+
+-- Botón de acceso rápido --
+•Mostrar botón: Activa o desactiva el botón de acceso rápido, lo cual permite usar MediMACROS sin necesidad del botón.
+•Elegir imagen: Permite personalizar el botón de acceso rápido con una imagen que usted elija. Debe ser una imagen en formato PNG de 128 x 128 pixeles.

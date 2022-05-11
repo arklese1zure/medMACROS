@@ -1,0 +1,10 @@
+﻿CTRL+F1		Mostrar / Ocultar la ventana.
+CTRL+F2		Abre la interfaz para texto rápido.
+CTRL+F3		Buscar medicamentos en Cuadro Básico en Excel.
+CTRL+F5		Copiar el nombre del paciente de la ventana de SIMEF.
+CTRL+F6		Escribir el nombre del paciente.
+CTRL+F7		Abrir el expediente del paciente.
+CTRL+F12	Reinicia el programa.
+SHIFT+CTRL+F12	En caso de que la ventana del programa no aparezca.
+SHIFT+CTRL+V	Copy-paste, incluso en programas que lo bloquean.
+SHIFT+CTRL+D	Inserta la fecha actual como texto.
