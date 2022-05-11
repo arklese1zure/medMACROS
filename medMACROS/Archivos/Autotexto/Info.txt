@@ -1,0 +1,1 @@
+You can place .txt files in this folder, for when you need to palce a lot of text, like paragraphs, repeatedly.
