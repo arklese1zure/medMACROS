@@ -1,0 +1,2 @@
+This folder is where .lnk files are stored, in order to use the script's shortcuts feature.
+.lnk files can be manually placed here or added through the dedicated GUI in the script.
