@@ -1,2 +1,2 @@
 # medMACROS
-Small helper app written in Autohotkey, for general medical consultation.
+Small helper app written in Autohotkey, for quickly writing medical notes during consultation. 
