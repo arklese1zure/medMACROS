@@ -1,0 +1,3 @@
+This folder contains all icons used by the script.
+Currently, most icons for GUI elements are pulled directly from the system's Shell32.dll.
+Some custom icons, like those for the tab controls in the main GUI, are stored here.
