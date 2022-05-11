@@ -2,7 +2,7 @@
 Small and extensible helper app for quickly writing medical notes during consultation,  written in Autohotkey.
 Currently GUI is in Spanish only.
 
-##Current functionality
+## Current functionality
 ### Extensibility via plug-ins
 medMacros extensions are specially formatted Autohotkey scripts that can be used for augmenting the script's own capabilities, or adding macros for many other tasks, like quickly navigating complicated menu structures in electronic medical record applications, in order to save time taking notes, filling forms, and many others.
 ### Hotstring manager
