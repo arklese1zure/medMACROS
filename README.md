@@ -16,7 +16,7 @@ Meant for quickly logging in to shared applications in a hospital network, like 
 ### File manager
 Lets the user view a folder as a small treeview that can always be accesed, useful for quickly launching commonly used files.
 ### Shortcuts
-Lets you add shortcuts for commonly used applications. Uses Window's own .lnk files, therefore it's extremely flexible, letting the user add web shortcuts and even sutom launch options on programs.
+Lets you add shortcuts for commonly used applications. Uses Window's own .lnk files, therefore it's extremely flexible, letting the user add web shortcuts and even custom launch options on exectuables.
 ### Notepad
 Small section for jotting down notes, to-do lists, et cetera.
 ### Phonebook
