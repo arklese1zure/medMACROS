@@ -1,0 +1,3 @@
+The main GUI is associated with an optional small GUI for quick functions, that takes the form of a small graphical element that persists above all windows, in order to quickly call the main GUI.
+I quickly noticed the similarity with the assistants from old Microsoft Office versions, so I added and option for the user to add any 128x128 transparent PNG in this folder, and use it as a sort of decoration.
+If this sounds too horrible for you, this secondary GUI can be disabled in the Settings GUI and replaced by a system tray icon, or removed altogether.
