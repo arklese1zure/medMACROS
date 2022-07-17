@@ -22,6 +22,6 @@ Small section for jotting down notes, to-do lists, et cetera.
 ### Phonebook
 Useful when you need to keep track of a lot of phone extensions.
 
-##Planned functionality
-###Browseable medical record
+## Planned functionality
+### Browseable medical record
 The user can keep a database of medical notes in order to work with them later or submit them to a more suitable location when it becomes available. Useful when the medical record system goes offline, etc.
