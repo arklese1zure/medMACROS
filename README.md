@@ -1,6 +1,6 @@
 # medMACROS
 Small and extensible helper app for quickly writing medical notes during consultation,  written in Autohotkey.
-Currently GUI is in Spanish only.
+GUI is fully translatable.
 
 ## Current functionality
 ### Extensibility via plug-ins
@@ -21,3 +21,7 @@ Lets you add shortcuts for commonly used applications. Uses Window's own .lnk fi
 Small section for jotting down notes, to-do lists, et cetera.
 ### Phonebook
 Useful when you need to keep track of a lot of phone extensions.
+
+##Planned functionality
+###Browseable medical record
+The user can keep a database of medical notes in order to work with them later or submit them to a more suitable location when it becomes available. Useful when the medical record system goes offline, etc.
