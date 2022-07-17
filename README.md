@@ -4,15 +4,22 @@ GUI is fully translatable.
 
 ## Current functionality
 ### Extensibility via plug-ins
-medMacros extensions are specially formatted Autohotkey scripts that can be used for augmenting the script's own capabilities, or adding macros for many other tasks, like quickly navigating complicated menu structures in electronic medical record applications, in order to save time taking notes, filling forms, and many others.
+medMacros extensions are specially formatted Autohotkey scripts that can be used for augmenting the main script's own capabilities.
+Some examples of extensibility:
+- Add new sections to the main GUI via tabs.
+- Add new features to the text editor.
+- Add new options to menus.
+- Add new sets of hostrings via specially formatted "dictionaries".
+- Add new global hotkeys with custom actions (for example, navigating cumbersome menus via automated keystroke sequences).
+
 ### Hotstring manager
-Using Autohotkey's powerful hotstring feature, this script lets you quickly add or remove new hotstrings. Extremely useful for quickly writing any long, repetitive text, extending abbreviations, replacing eponyms, or replacing brand names with their corresponding generic denominations.
+Using Autohotkey's powerful hotstring feature, this script lets you quickly add or remove new hotstrings. Extremely useful for quickly writing any long, repetitive text, extending abbreviations, replacing eponyms, or replacing brand names with their corresponding generic denominations. Multiple sets of hotstrings can be managed via a dedicated GUI.
 ### Quick text
 When the hotstrings feature is too inconvenient, the quick text GUI lets you keep a library of text snippets that can be quickly inserted by calling the GUI and selecting a file from a list.
 ### Alternative pasting from clipboard
-Many electronic medical record systems do not let you paste text directly in the fields. This method lets you send the text from the keyboard as keystrokes in order to circumvent these restrictions.
+Many electronic medical record systems do not let you paste text directly inside fields. This method lets you send the text from the clipboard as keystrokes in order to circumvent restrictions.
 ### Login manager
-Meant for quickly logging in to shared applications in a hospital network, like radiology or lab results. Not recommended for secure applications.
+Meant for quickly logging in to shared applications in a hospital network, like radiology, lab results and the like.
 ### File manager
 Lets the user view a folder as a small treeview that can always be accesed, useful for quickly launching commonly used files.
 ### Shortcuts
