@@ -10,7 +10,6 @@ SetWorkingDir A_ScriptDir
 
 ;==VERIFY FILES===============================================================================================================================================
 mainScriptWorkingDir := A_WorkingDir . "\Macros\"
-;mainScript := mainScriptWorkingDir . "miniMACROS.ahk"
 mainScript := mainScriptWorkingDir . "Main.ahk"
 SetWorkingDir %mainScriptWorkingDir%
 executableFile := mainScriptWorkingDir . "AutoHotkeyU64.exe"
