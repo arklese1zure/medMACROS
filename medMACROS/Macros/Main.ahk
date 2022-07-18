@@ -16,7 +16,7 @@ DetectHiddenWindows, On
 StringCaseSense, On
 ListLines Off
 
-; Plugins, components and hotstring dictionaries are included at the end of the script.
+; Plugins and hotstring dictionaries are #included at the end of the script.
 
 ;==CHECK PROGRAM FILES========================================================================================================================================
 if !FileExist("Macros\Settings")
@@ -188,9 +188,14 @@ Gui, Add, Tab3, 		x-1 yp+15 h263 w289 vMainTabs hwndMainTabs -Wrap, %MainGUI_Tab
 		TAB_Tooltips_SetText(MainTabs,A_Index,TAB_GetText(MainTabs,A_Index))
 Gui, Tab, 1	;--Passwords Tab------------------------------------------------------------
 Gui, Add, GroupBox, 	x1 y+3 h208 w283, %gui_groupbox_1%
-CSV_LVLoad("passwordCSV", 1, 1, 77, 283, 190, "Nombre|Usuario|Lugar (URL)|Contraseña", 1, 1)
+passwordColumns := passwords_1 . "|" . passwords_2 . "|" . passwords_3 . "|" . passwords_4
+CSV_LVLoad("passwordCSV", 1, 1, 77, 283, 190, passwordColumns, 1, 1)
 	Gui, ListView, SysListView321
 	GuiControl, +AltSubmit Grid +gPasswordListView, SysListView321
+	LV_ModifyCol(1, 80)
+	LV_ModifyCol(2, 90)
+	LV_ModifyCol(3, 109)
+	LV_ModifyCol(4, 0)
 Gui, Add, Button, 		x2 y270 w50 gPasswordLVOpen hwndOpenLogin, %gui_button_1%
 	GuiButtonIcon(OpenLogin, "shell32.dll", 101, "s16 a0 l2")
 Gui, Add, Button, 		x+1 y270 w90 gPasswordLVLogin hwndPasswordLVLogin, %gui_button_2%
@@ -296,9 +301,9 @@ GUIAbout:		; About this program, shows things in a pretty box with graphics.
 	Gui, About:Add, Text, 		yp+20, %gui_text_3%
 	Gui, About:Font,			norm s8
 	Gui, About:Add, Text, ,		%gui_text_4% Samuel Bencomo`nTwitter: @Arklese1zure
-	Gui, About:Add, Button,		x3 yp+35 gGUIHelpViewer, %gui_button_11%
-	Gui, About:Add, Button,		x3 y+2 gGUIHelpViewer, %gui_button_12%
-	Gui, About:Add, Button, 	x+170 w50 Default, OK
+	Gui, About:Add, Button,		x3 yp+35 w137 h30 gGUIHelpViewer, %gui_button_11%
+	Gui, About:Add, Button,		x+3 w137 h30 gGUIHelpViewer, %gui_button_12%
+	Gui, About:Add, Button, 	x110 w60 Default, OK
 	Gui, About:Show, 			x%aboutX% y%aboutY% w283, AboutMacros
 	return
 
@@ -411,8 +416,15 @@ GUISettings:	; Settings GUI.
 	Gui, SettingsGUI:Add, GroupBox, x3 y+10 h50 w470, %gui_settings_groupbox_3%
 	Gui, SettingsGUI:Add, Edit, 	x12 yp+20 w258 vdictNameBox -Wrap ReadOnly, %dict_Name%
 	Gui, SettingsGUI:Add, Button, 	x+3 yp-1 gLoadDictionary, %gui_settings_button_3%	; Load addon
-	Gui, SettingsGUI:Add, GroupBox, x3 y+10 h50 w200, %gui_settings_groupbox_4%
-	Gui, SettingsGUI:Add, Edit, 	xp+10 yp+19 w130 vmedimacros_passwordBox Password, %passwordMedimacros%
+	Gui, SettingsGUI:Add, GroupBox, x3 y+10 h50 w470, %gui_settings_groupbox_8%
+	Gui, SettingsGUI:Add, DropDownList, 	x12 yp+20 w258 vlangNameBox -Wrap ReadOnly Choose1, %gui_settings_ddl_1%
+	Loop, %A_WorkingDir%\Macros\Lang\*.lang.ahk											; Retrieve file list.
+		{
+		if (A_LoopFileName = "Active.lang.ahk")											; Skip active file.
+			Continue
+		GuiControl, SettingsGUI:, langNameBox, %A_LoopFileName%
+		}
+	Gui, SettingsGUI:Add, Button, 	x+3 yp-1 gLoadLanguage, %gui_settings_button_8%		; Load language
 	Gui, Tab, 2	;--GUI Settings Tab----------------------------------------------------------
 	Gui, SettingsGUI:Add, GroupBox, x3 y+5 h76 w200, %gui_settings_groupbox_5%
 	Gui, SettingsGUI:Add, CheckBox, xp+8 yp+20 vsettings_ToggleGUIEnabled Checked%settings_ToggleGUIEnabled%, %gui_settings_checkbox_1%
@@ -427,6 +439,10 @@ GUISettings:	; Settings GUI.
 	Gui, SettingsGUI:Add, CheckBox, yp+22 vsettings_HotstringsTabEnabled Checked%settings_HotstringsTabEnabled%, %gui_settings_checkbox_6%
 	Gui, SettingsGUI:Add, CheckBox, yp+22 vsettings_NotesTabEnabled Checked%settings_NotesTabEnabled%, %gui_settings_checkbox_7%
 	Gui, SettingsGUI:Add, CheckBox, yp+22 vsettings_PhonebookTabEnabled Checked%settings_PhonebookTabEnabled%, %gui_settings_checkbox_8%
+	Gui, SettingsGUI:Add, GroupBox, x210 y110 h50 w260, %gui_settings_groupbox_4%
+	Gui, SettingsGUI:Add, Edit, 	xp+10 yp+19 w130 vmedimacros_passwordBox Password, %passwordMedimacros%
+	Gui, SettingsGUI:Add, Button, 	x+3 yp-1 w30 gPeekPasswordField, Mostrar
+	Gui, SettingsGUI:Add, Button, 	x+3 yp+0 w30 gNewLockPassword, Cambiar
 	Gui, Tab, 3	;--Plugin Tab---------------------------------------------------------------
 	GoSub, PluginSettings
 	Gui, Tab	;---------------------------------------------------------------------------
@@ -441,7 +457,7 @@ SaveSettings:																			; Save settings.
 	IniWrite, %userNameBox%,					%loginDataFile%, usuario, settings_userName
 	IniWrite, %workPlaceBox%, 					%loginDataFile%, usuario, settings_workplace
 	IniWrite, %settings_ToggleGUIEnabled%, 		%file_Settings%, buttonsettings, enabled
-	IniWrite, %medimacros_passwordBox%, 		%file_Settings%, safety, unlockpassword
+;	IniWrite, %medimacros_passwordBox%, 		%file_Settings%, safety, unlockpassword
 	IniWrite, %settings_TrayEnabled%,			%file_Settings%, windowsettings, TrayEnabled
 	IniWrite, %settings_TitlebarEnabled%,		%file_Settings%, windowsettings, TitlebarEnabled
 	IniWrite, %settings_PasswordsTabEnabled%,	%file_Settings%, windowsettings, PasswordsTabEnabled
@@ -469,6 +485,7 @@ LoadDictionary:
 	FileSelectFile, selectedDictName, 3, %A_WorkingDir%\Macros\Dictionaries, %fileSelectDialog_3%, %fileSelectDialog_4% (*.ahk)
 	if (SelectedDictName = "")
 		return
+	selectedPluginName := selectedDictName
 	GoSub, CheckValidPlugin
 	if (pluginIsValid = FALSE)
 		return
@@ -477,10 +494,28 @@ LoadDictionary:
 	GuiControl, %selectedDictName%, dictNameBox
 	return
 
+LoadLanguage:
+	Gui, SettingsGUI:Submit, NoHide
+	selectedLangName := langNameBox
+	if (selectedLangName = "")
+		return
+	if (selectedLangName = gui_settings_ddl_1)
+		{
+		MsgBox, 4096, Error, %errBox_12%
+		return
+		}
+	selectedPluginName := A_WorkingDir . "\Macros\Lang\" . selectedLangName
+	GoSub, CheckValidPlugin
+	if (pluginIsValid = FALSE)
+		return
+	FileDelete, %A_WorkingDir%\Macros\Lang\Active.lang.ahk
+	FileCopy, %selectedLangName%, %A_WorkingDir%\Macros\Lang\Active.ahk
+	GuiControl, %selectedLangName%, langNameBox
+	return
+
 CheckValidPlugin:
-	selectedPluginName := selectedPluginName . selectedDictName
 	FileReadLine, checkedLine, %selectedPluginName%, 1
-	if (checkedLine <> "; MEDIMACROSADDON")
+	if (checkedLine <> "; MEDMACROS")
 		{
 		MsgBox, 4096, Error, %errBox_3%
 		pluginIsValid := FALSE
@@ -500,6 +535,36 @@ LoadButtonImage:
 	SplitPath, selectedButtonName, buttonname
 	IniWrite, %buttonname%, %file_Settings%, buttonsettings, buttonFile					; Floating button image.
 	return
+
+PeekPasswordField:
+	if (passwordFieldVisible = TRUE)
+		{
+		GuiControl,SettingsGUI: +Password, medimacros_passwordBox
+		passwordFieldVisible := FALSE
+		}
+	else
+		{
+		GuiControl,SettingsGUI: -Password, medimacros_passwordBox
+		passwordFieldVisible := TRUE
+		}
+	Return
+
+NewLockPassword:
+	Gui, SettingsGUI:Submit, NoHide
+	if (medimacros_passwordBox = passwordMedimacros)
+		{
+		MsgBox % "Please input a new password in the field"
+		return
+		}
+	InputBox, newLockPassword, Input new password, Please confirm your new password, HIDE, 240, 140
+	if (medimacros_passwordBox <> newLockPassword)
+		{
+		MsgBox % "Passwords do not match, please try again"
+		return
+		}
+	IniWrite, %medimacros_passwordBox%, 		%file_Settings%, safety, unlockpassword
+	msgbox % "The new lock password has been set."
+	Return
 
 SettingsGUIGuiClose:																	; Things to do when GUI is closed.
 	Gui, Destroy
@@ -738,7 +803,7 @@ RemovePassword:
 PasswordLVOpen:																			; Open selected resource with variables obtained from FetchPasswordLV.
 	if (focusedrownumber = "0")															; Don't do anything if no row is focused, inform user.
 		{
-		MsgBox, %promptBox_4%
+		MsgBox % promptBox_4
 		return
 		}
 	Run, %resourceLocation%
@@ -977,7 +1042,7 @@ Suspendhotstrings:	;--Suspend hotstrings----------------------------------------
 
 DummyHandler: ;--Generic subroutine for debug-------------------------------------------
 MenuHandler:
-	ToolTip, Super cool debug message I eat gunpowder boom boom
+	ToolTip, Not yet implemented.
 	Sleep 1000
 	Tooltip
 	return
@@ -1056,7 +1121,7 @@ NewWindowHide: ;--Hiding window toggle------------------------------------------
 			return
 			}
 		else
-			MsgBox, %promptBox_13%
+			MsgBox % promptBox_13
 		return
 		}
 	return

@@ -1,40 +1,32 @@
-; MEDIMACROSADDON
+ï»¿; MEDMACROS
 ;=============================================================================================================================================================
-; Diccionario para MediMacros
+; MedMACROS Hotstring dictionary file
 ;=============================================================================================================================================================
-
-;##ESTRUCTURA DE LAS EXTENSIONES PARA MEDIMACROS##############################################################################################################
-; El formato de las extensiones para mediMACROS es simplemente un script de AutoHotkey con algunas subrutinas predeterminadas que el script principal
-; usa para agregar funcionalidad en el lugar correcto. Todas las subrutinas que estén en la plantilla para extensiones deben estar presentes aunque
-; no se vayan a usar en la extensión que se esté creando.
-; Si no se requiere alguna subrutina, se debe dejar el nombre y el elemento "return", de modo que el script continúe con su estructura.
-;#############################################################################################################################################################
-
-DictReadSettings: ;==Variables para configurar mediMACROS====================================================================================================
-dict_Name :=					"Abreviaturas sin dosis"					; Nombre de la extensión, no debe usar caracteres especiales.
-return																		; regresar
-
+DictReadSettings:                                                           ; This function is for loading some basic data about this dictionary.
+dict_Name :=					"Abreviaturas sin dosis"					; Name to show in the settings menu.
+return                                                                      ; Do not remove these comments.
+;=============================================================================================================================================================
 :R:DM2::Diabetes mellitus tipo 2
 :R:DM1::Diabetes mellitus tipo 1
 :R:AR::Artritis reumatoide
-:R:SOP::Síndrome de ovario poliquístico
+:R:SOP::SÃ­ndrome de ovario poliquÃ­stico
 :R:EAD::Enfermedad articular degenerativa
-:R:HPB::Hiperplasia prostática benigna
-:R:ERC::Enfermedad renal crónica
-:R:LUES::Lupus eritematoso sistémico
+:R:HPB::Hiperplasia prostÃ¡tica benigna
+:R:ERC::Enfermedad renal crÃ³nica
+:R:LUES::Lupus eritematoso sistÃ©mico
 :R:ALZHEIMER::Enfermedad de alzheimer
-:R:CUCI::Colitis ulcerosa crónica inespecífica
-:R:CAMAMA::Cáncer de mama
-:R:FA::Fibrilación auricular
+:R:CUCI::Colitis ulcerosa crÃ³nica inespecÃ­fica
+:R:CAMAMA::CÃ¡ncer de mama
+:R:FA::FibrilaciÃ³n auricular
 :R:LABS::laboratorios
-:R:PFH::pruebas de función hepática
-:R:BH::biometría hemática
-:R:QS::química sanguínea
+:R:PFH::pruebas de funciÃ³n hepÃ¡tica
+:R:BH::biometrÃ­a hemÃ¡tica
+:R:QS::quÃ­mica sanguÃ­nea
 :R:HBA1C::hemoglobina glucosilada
-:R:VSG::velocidad de sedimentación globular
-:R:MHD::medidas higiénico-dietéticas
+:R:VSG::velocidad de sedimentaciÃ³n globular
+:R:MHD::medidas higiÃ©nico-dietÃ©ticas
 :R:MTF::metformina
-:R:ASA300::Acido acetilsalicílico soluble
+:R:ASA300::Acido acetilsalicÃ­lico soluble
 :R:OMP::Omeprazol
 :R:CLONA::Clonazepam
 :R:FEXO::Fexofenadina
@@ -43,7 +35,7 @@ return																		; regresar
 :R:LOSARTAN::Losartan
 :R:MTP::Metoprolol
 :R:HCTZ::Hidroclorotiazida
-:R:DX::Diagnóstico
+:R:DX::DiagnÃ³stico
 :R:PENTO::Pentoxifilina
 :R:FURO::Furosemide
 :R:TAMSU::Tamsulosina
@@ -60,31 +52,31 @@ return																		; regresar
 :R:IRBE::Irbesartan
 :R:SERTRA::Sertralina
 :R:ENP::Enalapril
-:R:Z125::Examen de pesquisa especial para tumor de la próstata
+:R:Z125::Examen de pesquisa especial para tumor de la prï¿½stata
 :R:Z131::Examen de pesquisa especial para diabetes mellitus
-:R:FUM::fecha de última menstruación
+:R:FUM::fecha de Ãºltima menstruaciÃ³n
 :R:FPP::fecha probable de parto
 :R:AFU::altura de fondo uterino
-:R:FCF::frecuencia cardíaca fetal
+:R:FCF::frecuencia cardÃ­aca fetal
 :R:LPM::latidos por minuto
-:R:SDG::semanas de gestación
+:R:SDG::semanas de gestaciÃ³n
 :R:EGO::examen general de orina
-:R:O098::Supervisión de embarazo de alto riesgo
+:R:O098::SupervisiÃ³n de embarazo de alto riesgo
 :R:AOC::anticonceptivo oral combinado
-:R:idx::impresión diagnóstica
-:R:RX::radiografía
+:R:idx::impresiÃ³n diagnÃ³stica
+:R:RX::radiografÃ­a
 :R:PX::paciente
 :R:DBP::diametro biparietal
-:R:Z716::Consulta para asesoría por abuso de tabaco
-:R:Z340::Contacto para supervisión del primer embarazo normal, trimestre no especificado 
-:R:Z349::Contacto para supervisión del embarazo normal, no especificado, trimestre no especificado 
-:R:PC::perímetro cefálico
-:R:pa::perímetro abdominal
+:R:Z716::Consulta para asesorÃ­a por abuso de tabaco
+:R:Z340::Contacto para supervisiÃ³n del primer embarazo normal, trimestre no especificado 
+:R:Z349::Contacto para supervisiÃ³n del embarazo normal, no especificado, trimestre no especificado 
+:R:PC::perÃ­metro cefÃ¡lico
+:R:pa::perÃ­metro abdominal
 :R:lf::longitud femoral
 :R:aprox::aproximadamente
-:R:puvi::producto único vivo intrauterino
-:R:HAS::Hipertensión esencial (primaria)
-:R:O100::Hipertensión preexistente que complica el embarazo, parto y puerperio
-:R:O139:: Hipertensión gestacional sin proteinuria significativa
-:R:O095::Supervisión de multigrávida añosa
+:R:puvi::producto Ãºnico vivo intrauterino
+:R:HAS::HipertensiÃ³n esencial (primaria)
+:R:O100::HipertensiÃ³n preexistente que complica el embarazo, parto y puerperio
+:R:O139:: HipertensiÃ³n gestacional sin proteinuria significativa
+:R:O095::SupervisiÃ³n de multigrÃ¡vida aÃ±osa
 :R:rots::reflejos osteotendinosos

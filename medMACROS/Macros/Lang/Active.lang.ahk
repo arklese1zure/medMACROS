@@ -63,6 +63,10 @@ gui_groupbox_1 :=				"Administrador de contraseñas"
 gui_button_1 :=					"Abrir"
 gui_button_2 :=					"Iniciar sesión"
 gui_button_3 :=					"Opciones"
+passwords_1 :=                  "Nombre"
+passwords_2 :=                  "Usuario"
+passwords_3 :=                  "Lugar (URL)"
+passwords_4 :=                  "Contraseña"
 ;--Quick access Tab---------------------------------------------------------
 gui_groupbox_2 :=				"Archivos guardados"
 gui_button_4 :=					"Actualizar vista"
@@ -76,7 +80,6 @@ gui_groupbox_4 :=				"Notas y herramientas"
 gui_button_8 :=					"Borrar"
 gui_button_9 :=					"Guardar"
 gui_text_1 :=					"Herramientas:"
-;--Scratchpad Tab-----------------------------------------------------------
 tools_1 :=						"Calculadora"
 tools_2 :=						"Calculadora médica"
 tools_3 :=						"Vademécum"
@@ -127,19 +130,26 @@ gui_settings_checkbox_5 :=		"Archivos guardados"
 gui_settings_checkbox_6 :=		"Autocompletar"
 gui_settings_checkbox_7 :=		"Notas y herramientas"
 gui_settings_checkbox_8 :=		"Directorio telefónico"
+gui_settings_groupbox_8 :=		"Idioma"
+gui_settings_ddl_1 :=		    "Seleccione un idioma"
 ;--Plugin Tab---------------------------------------------------------------
 gui_settings_button_5 :=		"Ayuda"
 gui_settings_button_6 :=		"Guardar"
 gui_settings_button_7 :=		"Cancelar"
 gui_windowtitle_3:=				"Ajustes"
+gui_settings_button_8 :=		"Cambiar idioma"
 ;--LoadExtension------------------------------------------------------------
 fileSelectDialog_1 :=			"Cargar extensión nueva"
 fileSelectDialog_2 :=			"Extensión medMACROS"
 ;--LoadDictionary-----------------------------------------------------------
 fileSelectDialog_3 :=			"Cargar diccionario"
 fileSelectDialog_4 :=			"Diccionario medMACROS"
+;--LoadLanguage-------------------------------------------------------------
+fileSelectDialog_6 :=			"Cargar lenguaje"
+fileSelectDialog_7 :=			"Archivo de lenguaje medMACROS"
 ;--CheckValidPlugin---------------------------------------------------------
 errBox_3 :=						"Formato de extensión no válido, favor de verificar."
+errBox_12 :=					"Seleccione un idioma de la lista."
 
 ;##New hotstring GUI##########################################################################################################################################
 gui_hotstrings_text_1 :=		"Escriba la palabra o frase que quiere abreviar."
