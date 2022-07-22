@@ -1,34 +1,40 @@
-# medMACROS
-Small and extensible helper app for quickly writing medical notes during consultation,  written in Autohotkey.
-GUI is fully translatable.
+# MedMACROS
+Small and extensible helper application for quickly writing medical notes during consultation,  written in AutoHotKey.
 
 ## Current functionality
 ### Extensibility via plug-ins
-medMacros extensions are specially formatted Autohotkey scripts that can be used for augmenting the main script's own capabilities.
+MedMacros extensions are specially formatted Autohotkey scripts that can be used for augmenting the main script's own capabilities.
 Some examples of extensibility:
 - Add new sections to the main GUI via tabs.
 - Add new features to the text editor.
 - Add new options to menus.
 - Add new sets of hostrings via specially formatted "dictionaries".
 - Add new global hotkeys with custom actions (for example, navigating cumbersome menus via automated keystroke sequences).
+- Create specific keystroke sequences for quick navigation of menus or performing repetitive tasks.
 
 ### Hotstring manager
-Using Autohotkey's powerful hotstring feature, this script lets you quickly add or remove new hotstrings. Extremely useful for quickly writing any long, repetitive text, extending abbreviations, replacing eponyms, or replacing brand names with their corresponding generic denominations. Multiple sets of hotstrings can be managed via a dedicated GUI.
+Using AutoHotKey's powerful hotstring feature, MedMACROS lets you manage hotstring lists ("Dictionaries") in a convenient way.
+This feature is useful for quickly writing any long, repetitive text, extending abbreviations, replacing eponyms, or replacing brand names with their corresponding generic denominations.
+MedMACROS can also keep multiple hotstring sets and switch between them via the settings GUI.
 ### Quick text
-When the hotstrings feature is too inconvenient, the quick text GUI lets you keep a library of text snippets that can be quickly inserted by calling the GUI and selecting a file from a list.
+When large chunks of text are required, the hotstrings feature may be too cumbersome.
+The quick text feature lets you keep a library of text snippets that can be quickly inserted by calling the GUI and selecting a snippet from the list.
 ### Alternative pasting from clipboard
-Many electronic medical record systems do not let you paste text directly inside fields. This method lets you send the text from the clipboard as keystrokes in order to circumvent restrictions.
+Some electronic medical record systems disallow pasting into text fields. This feature lets the user send text from the clipboard as keystrokes in order to circumvent restrictions.
 ### Login manager
 Meant for quickly logging in to shared applications in a hospital network, like radiology, lab results and the like.
 ### File manager
-Lets the user view a folder as a small treeview that can always be accesed, useful for quickly launching commonly used files.
+This feature generates a hierarchic tree view from a preset folder. Useful for storing reference material or other files for quick access.
+There's also a drag-and-drop feature that will copy the dropped files to the folder.
 ### Shortcuts
-Lets you add shortcuts for commonly used applications. Uses Window's own .lnk files, therefore it's extremely flexible, letting the user add web shortcuts and even custom launch options on exectuables.
+Lets you add shortcuts for commonly used applications or files. It uses Window's own .lnk files, therefore it's extremely flexible, letting the user add web shortcuts and even custom launch options on exectuables.
 ### Notepad
-Small section for jotting down notes, to-do lists, et cetera.
+Small section for jotting down notes, to-do lists, and other things. Not meant as a text editor.
 ### Phonebook
 Useful when you need to keep track of a lot of phone extensions.
 
 ## Planned functionality
 ### Browseable medical record
 The user can keep a database of medical notes in order to work with them later or submit them to a more suitable location when it becomes available. Useful when the medical record system goes offline, etc.
+### Other features
+Feel free to contribute or request any features you might find useful for your particular work environment.
