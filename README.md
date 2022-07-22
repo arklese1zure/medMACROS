@@ -1,5 +1,5 @@
 # MedMACROS
-Small and extensible helper application for quickly writing medical notes during consultation,  written in AutoHotKey.
+Small and extensible helper application for writing medical notes during consultation, written in AutoHotKey.
 
 ## Current functionality
 ### Extensibility via plug-ins
@@ -35,6 +35,6 @@ Useful when you need to keep track of a lot of phone extensions.
 
 ## Planned functionality
 ### Browseable medical record
-The user can keep a database of medical notes in order to work with them later or submit them to a more suitable location when it becomes available. Useful when the medical record system goes offline, etc.
+The user can keep a database of medical notes in order to work with them later or submit them when a more appropriate location when becomes available. Useful when the medical record system goes offline, etc.
 ### Other features
 Feel free to contribute or request any features you might find useful for your particular work environment.
