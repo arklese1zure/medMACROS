@@ -10,63 +10,80 @@ GUITextEdit:
 	Menu, TextEditMenu, Add, Guardar`tCtrl+S, FileSave
 	Menu, TextEditMenu, Add ;-----------------------------------------------------------
 	Menu, TextEditMenu, Add, Salir`tCtrl+Q, FileExit
-	Menu, MyMenuBar, Add, &Archivo, :TextEditMenu										; Menu bar by attaching the sub-menus to it.
 	
 ;==MAIN GUI===================================================================================================================================================
 	Gui, TextEdit:+LastFound +AlwaysOnTop
-	Gui, TextEdit:Menu, MyMenuBar														; Attach the menu bar.
-	Gui, TextEdit:Add, GroupBox, x3 y3 h58 w608, Signos vitales ;--Vitals---------------
-	Gui, TextEdit:Add, Text, x12 y19 w80 h20 , Temperatura								; First add editbox, then DllCall in order to add placeholder text
-	Gui, TextEdit:Add, Edit, x12 y34 w40 h20 vtemperatura Limit4 hwndhwnd_temperatura
+	Gui, TextEdit:Add, GroupBox, x3 y0 h38 w608,						;--Buttons---------------
+	Gui, TextEdit:Add, Button, gFileMenu hwndFileMenu x5 yp+10 w25, Archivo
+	Gui, TextEdit:Add, Button, gFileSave hwndFileSave x+3 yp w25,
+		GuiButtonIcon(FileSave, "shell32.dll", 259, "s16 a0 l2")
+	Gui, TextEdit:Add, Button, gFileExit x+3 yp w25 hwndCancel,
+		GuiButtonIcon(Cancel, "shell32.dll", 132, "s16 a0 l2")
+if (TE_AddonButtonEnabled = TRUE)
+		Gui, TextEdit:Add, Button, gPluginTextEdit x524 yp+25 w80 hwndTEAddonButton, %TE_AddonButtonText%
+		GuiButtonIcon(TEAddonButton, "shell32.dll", 261, "s16 a0 l2")
+	Gui, TextEdit:Add, GroupBox, x3 y+8 h72 w608, Datos de la consulta	;--Patient info---------------
+	Gui, TextEdit:Add, Text, x12 yp+20 w40 r1, Nombre:
+	Gui, TextEdit:Add, Edit, x+3 yp w300 h20
+	Gui, TextEdit:Add, Text, x+12 yp h20, ID:
+	Gui, TextEdit:Add, Edit, x+3 w40 h20
+	Gui, TextEdit:Add, Text, x+12 yp h20, Número de consulta:
+	Gui, TextEdit:Add, Edit, x+3 yp w30 h20 ReadOnly, 1
+	Gui, TextEdit:Add, Text, x12 y+5 w40 r1, Edad:
+	Gui, TextEdit:Add, Edit, x+3 yp w40 h20 Number
+	Gui, TextEdit:Add, Text, x+6 yp h20 , Sexo:
+	Gui, TextEdit:Add, DropDownList, x+3 yp w40 r10, M|F
+	Gui, TextEdit:Add, GroupBox, x3 y+8 h68 w608, Signos vitales ;--Vitals---------------
+	Gui, TextEdit:Add, Text, x12 yp+20 w80 h20 , Temperatura								; First add editbox, then DllCall in order to add placeholder text
+	Gui, TextEdit:Add, Text, x+3 yp w80 h20 , FC
+	Gui, TextEdit:Add, Text, x+3 yp w80 h20 , FR
+	Gui, TextEdit:Add, Text, x+3 yp w80 h20 , Talla
+	Gui, TextEdit:Add, Text, x+3 yp w80 h20 , Peso
+	Gui, TextEdit:Add, Text, x+3 yp w80 h20 , T/A	
+	Gui, TextEdit:Add, Edit, x12 yp+17 w40 h20 vtemperatura Limit4 hwndhwnd_temperatura
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_temperatura, "UInt", 0x1501, "Ptr", True, "Str", "36.5", "Ptr")
-	Gui, TextEdit:Add, Text, x58 y37 w70 h20 , °C
-	Gui, TextEdit:Add, Text, x90 y19 w90 h20 , FC
-	Gui, TextEdit:Add, Edit, x90 y34 w30 h20 vfrecuencia Limit3 Number hwndhwnd_frecuencia
+	Gui, TextEdit:Add, Text, x+2 yp+3 w20 h20 , °C
+	Gui, TextEdit:Add, Edit, x+20 yp-3 w30 h20 vfrecuencia Limit3 Number hwndhwnd_frecuencia
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_frecuencia, "UInt", 0x1501, "Ptr", True, "Str", "70", "Ptr")
-	Gui, TextEdit:Add, Text, x124 y37 w70 h20 , lpm
-	Gui, TextEdit:Add, Text, xp+30 y19 w90 h20 , FR
-	Gui, TextEdit:Add, Edit, xp y34 w30 h20 vrespiracion Limit2 Number hwndhwnd_respiracion
+	Gui, TextEdit:Add, Text, x+2 yp+3 w20 h20 , lpm
+		Gui, TextEdit:Add, Edit, x+30 yp-3 w30 h20 vrespiracion Limit2 Number hwndhwnd_respiracion
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_respiracion, "UInt", 0x1501, "Ptr", True, "Str", "15", "Ptr")
-	Gui, TextEdit:Add, Text, xp+34 y37 w70 h20 , rpm
-	Gui, TextEdit:Add, Text, xp+30 y19 w90 h20 , Talla
-	Gui, TextEdit:Add, Edit, xp y34 w30 h20 vtalla Limit3 Number hwndhwnd_talla
+	Gui, TextEdit:Add, Text, x+2 yp+3 w20 h20 , rpm
+		Gui, TextEdit:Add, Edit, x+32 yp-3 w30 h20 vtalla Limit3 Number hwndhwnd_talla
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_talla, "UInt", 0x1501, "Ptr", True, "Str", "170", "Ptr")
-	Gui, TextEdit:Add, Text, xp+34 y37 w70 h20 , cm
-	Gui, TextEdit:Add, Text, xp+30 y19 w90 h20 , Peso	
-	Gui, TextEdit:Add, Edit, xp y34 w30 h20 vpeso gLabelPeso Limit4 hwndhwnd_peso
+	Gui, TextEdit:Add, Text, x+2 yp+3 w20 h20 , cm
+	Gui, TextEdit:Add, Edit, x+30 yp-3 w30 h20 vpeso gLabelPeso Limit4 hwndhwnd_peso
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_peso, "UInt", 0x1501, "Ptr", True, "Str", "58", "Ptr")
-	Gui, TextEdit:Add, Text, xp+34 y37 w70 h20 , kg
-	Gui, TextEdit:Add, Text, xp+30 y19 w90 h20, T/A	
-	Gui, TextEdit:Add, Edit, xp y34 w30 h20 vsistolica gLabelSistolica Number hwndhwnd_sistolica
+	Gui, TextEdit:Add, Text, x+2 yp+3 w20 h20 , kg
+	Gui, TextEdit:Add, Edit, x+32 yp-3 w30 h20 vsistolica gLabelSistolica Number hwndhwnd_sistolica
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_sistolica, "UInt", 0x1501, "Ptr", True, "Str", "120", "Ptr")
-	Gui, TextEdit:Add, Text, xp+30 y37 w30 h20 , /
-	Gui, TextEdit:Add, Edit, xp+5 y34 w30 h20 vdiastolica Limit3 Number hwndhwnd_diastolica
+	Gui, TextEdit:Add, Text, x+2 yp+3 w7 h20 , /
+	Gui, TextEdit:Add, Edit, x+3 yp-3 w30 h20 vdiastolica Limit3 Number hwndhwnd_diastolica
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_diastolica, "UInt", 0x1501, "Ptr", True, "Str", "80", "Ptr")
-	Gui, TextEdit:Add, Text, xp+34 y37 w70 h20 , mmHg
-	Gui, TextEdit:Add, GroupBox, x3 y63 h232 w608, Consulta ;--Main edit control--------
-	Gui, TextEdit:Add, Edit, x12 y78 w590 h130 vconsulta
-	Gui, TextEdit:Add, Text, x12 y222 w90 h20, Diagnóstico 1: ;--Diagnoses--------------
-	Gui, TextEdit:Add, Text, x12 yp+25 w90 h20, Diagnóstico 2:
-	Gui, TextEdit:Add, Text, x12 yp+25 w90 h20, Diagnóstico 3:
-	Gui, TextEdit:Add, Edit, x92 y219 w320 h20 vdiag1 hwndhwnd_diag1
+	Gui, TextEdit:Add, Text, x+2 yp+3 w30 h20 , mmHg
+	Gui, TextEdit:Add, GroupBox, x3 y+8 h242 w608, Consulta ;--Main edit control--------
+	Gui, TextEdit:Add, Edit, x12 yp+20 w590 h130 vconsulta
+	Gui, TextEdit:Add, Text, x12 y+10 w70 h20, Diagnóstico 1: ;--Diagnoses--------------
+	Gui, TextEdit:Add, Edit, x+3 yp-2 w320 h20 vdiag1 hwndhwnd_diag1
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_diag1, "UInt", 0x1501, "Ptr", True, "Str", "Diagnóstico 1", "Ptr") 
-	Gui, TextEdit:Add, Edit, x92 yp+25 w320 h20 vdiag2 hwndhwnd_diag2
+	Gui, TextEdit:Add, Text, x12 y+10 w70 h20, Diagnóstico 2:
+	Gui, TextEdit:Add, Edit, x+3 yp-2 w320 h20 vdiag2 hwndhwnd_diag2
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_diag2, "UInt", 0x1501, "Ptr", True, "Str", "Diagnóstico 2", "Ptr") 
-	Gui, TextEdit:Add, Edit, x92 yp+25 w320 h20 vdiag3 hwndhwnd_diag3
+	Gui, TextEdit:Add, Text, x12 y+10 w70 h20, Diagnóstico 3:
+	Gui, TextEdit:Add, Edit, x+3 yp-2 w320 h20 vdiag3 hwndhwnd_diag3
 		DllCall("user32.dll\SendMessage", "Ptr", hwnd_diag3, "UInt", 0x1501, "Ptr", True, "Str", "Diagnóstico 3", "Ptr")
+/*
 	Gui, TextEdit:Add, Radio, x424 y220 vradio_primeraVez, Primera vez ;--Radio buttons------------------
 	Gui, TextEdit:Add, Radio, x424 yp+25 vradio_subsecuente, Subsecuente									; WIP: We need a way to store this in the output files.
 	Gui, TextEdit:Add, Radio, x424 yp+25, No otorgada
-	Gui, TextEdit:Add, Button, gFileSave hwndFileSave x524 y218 w80, Guardar ;--Buttons-
-	GuiButtonIcon(FileSave, "shell32.dll", 259, "s16 a0 l2")
-	if (TE_AddonButtonEnabled = TRUE)
-		Gui, TextEdit:Add, Button, gPluginTextEdit x524 yp+25 w80 hwndTEAddonButton, %TE_AddonButtonText%
-		GuiButtonIcon(TEAddonButton, "shell32.dll", 261, "s16 a0 l2")
-	Gui, TextEdit:Add, Button, gFileExit x524 yp+25 w80 hwndCancel, Cancelar
-		GuiButtonIcon(Cancel, "shell32.dll", 132, "s16 a0 l2")
-	Gui, TextEdit:Show, x198 y257 h298 w614, mediMACROS — Editor de texto ;--GUI--------
+*/
+	Gui, TextEdit:Show, x198 y257 h438 w614, medMACROS — Editor de texto ;--GUI--------
 	CurrentFileName := ""																; Indicate that there is no current file.
 	return
+
+FileMenu:
+	Menu, TextEditMenu, Show
+	Return
 
 LabelPeso:
 	Gui, Submit, NoHide
