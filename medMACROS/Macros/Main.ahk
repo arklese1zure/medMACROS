@@ -200,7 +200,7 @@ Gui, Add, Button, 		x2 y270 w50 gPasswordLVOpen hwndOpenLogin, %gui_button_1%
 	GuiButtonIcon(OpenLogin, "shell32.dll", 101, "s16 a0 l2")
 Gui, Add, Button, 		x+1 y270 w90 gPasswordLVLogin hwndPasswordLVLogin, %gui_button_2%
 	GuiButtonIcon(PasswordLVLogin, "shell32.dll", 105, "s16 a0 l2")
-Gui, Add, Button,		x227 y270 gPasswordsMenu, %gui_button_3%
+Gui, Add, Button,		x227 y270 w57 gPasswordsMenu, %gui_button_3%
 Gui, Tab, 2	;--Quick access Tab---------------------------------------------------------
 Gui, Add, GroupBox, 	x1 y+3 h208 w283, %gui_groupbox_2%
 Gui, Add, TreeView, 	x1 y77 h190 w283 ImageList%ImageListID% vTreeView gfileTreeView AltSubmit
@@ -218,7 +218,7 @@ Gui, Add, listview, 	x1 y77 h190 w283 vMyListView gHotstringLVMenu AltSubmit Sor
 	LV_ModifyCol(2, 300)
 	GoSub, HotstringLVFill																; Populate ListView with parsed content from Hotstrings.ahk
 Gui, Add, Button, 		x2 y270 gTextTemplates, %gui_button_6%
-Gui, Add, Button,		x227 y270 gHotstringLVMenu,	%gui_button_7%
+Gui, Add, Button,		x227 y270 w57 gHotstringLVMenu,	%gui_button_7%
 Gui, Tab, 4	;--Scratchpad Tab-----------------------------------------------------------
 Gui, Add, GroupBox, 	x1 y+3 h208 w283, %gui_groupbox_4%
 Gui, Add, Edit, 		x1 y77 w283 h190 vscratchPad									; For jotting down quick notes
@@ -241,7 +241,7 @@ CSV_LVLoad("phonebookCSV", 1, 1, 77, 283, 190, phonebooklistviewcolumns, 1, 1)
 	LV_ModifyCol(2, 100)
 	Gui, ListView, SysListView323
 	GuiControl, +AltSubmit Grid +gPhonebookListView -readonly, SysListView323
-Gui, Add, Button,		x227 y270 gPhonebookListView,	%gui_button_10%
+Gui, Add, Button,		x227 y270 w57 gPhonebookListView,	%gui_button_10%
 Gui, Tab, 6	;--Addon 1 Tab--------------------------------------------------------------
 GoSub, PluginTab
 Gui, Tab
@@ -300,7 +300,7 @@ GUIAbout:		; About this program, shows things in a pretty box with graphics.
 	Gui, About:Font,			italic s8
 	Gui, About:Add, Text, 		yp+20, %gui_text_3%
 	Gui, About:Font,			norm s8
-	Gui, About:Add, Text, ,		%gui_text_4% Samuel Bencomo`nTwitter: @Arklese1zure
+	Gui, About:Add, Text, ,		%gui_text_4% Arklese1zure`nTwitter: @Arklese1zure
 	Gui, About:Add, Button,		x3 yp+35 w137 h30 gGUIHelpViewer, %gui_button_11%
 	Gui, About:Add, Button,		x+3 w137 h30 gGUIHelpViewer, %gui_button_12%
 	Gui, About:Add, Button, 	x110 w60 Default, OK
@@ -505,11 +505,16 @@ LoadLanguage:
 		return
 		}
 	selectedPluginName := A_WorkingDir . "\Macros\Lang\" . selectedLangName
+	;MsgBox % selectedPluginName
+	;Return
 	GoSub, CheckValidPlugin
 	if (pluginIsValid = FALSE)
-		return
+	{
+	MsgBox % "Invalid plugin file."
+	return
+	}
 	FileDelete, %A_WorkingDir%\Macros\Lang\Active.lang.ahk
-	FileCopy, %selectedLangName%, %A_WorkingDir%\Macros\Lang\Active.ahk
+	FileCopy, %selectedPluginName%, %A_WorkingDir%\Macros\Lang\Active.lang.ahk
 	GuiControl, %selectedLangName%, langNameBox
 	return
 
@@ -690,8 +695,8 @@ PasswordsGuiEscape:
 	return
 
 ^+v:: ;--Alternate paste for security circumvention-------------------------------------
-	Send {Raw}%Clipboard%
-	return
+	GoSub, AlternatePaste
+	Return
 
 ;##MAIN GUI SUBROUTINES#######################################################################################################################################
 ;==MENU TRIGGERS==============================================================================================================================================
@@ -1166,6 +1171,12 @@ FocusMainGUI:
 	GoSub, NewWindowHide
 	GoSub, PluginSummonAction														; Addons can add extra functionality here.
 	return
+
+AlternatePaste:
+	clipboard := TF_Tab2Spaces(clipboard, TabStop=2, Startline=1, Endline=0)		; Remove tabs.
+	clipboard := TF_RemoveBlankLines(clipboard)										; Remove empty lines.
+	Send {Raw}%clipboard%
+	Return
 
 ;==APPEND PLUGINS============================================================================================================================================
 #Include %A_ScriptDir%/Dictionaries/Active.ahk
