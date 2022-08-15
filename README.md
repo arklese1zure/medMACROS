@@ -32,9 +32,8 @@ Lets you add shortcuts for commonly used applications or files. It uses Window's
 Small section for jotting down notes, to-do lists, and other things. Not meant as a text editor.
 ### Phonebook
 Useful when you need to keep track of a lot of phone extensions.
-
-## Planned functionality
 ### Browseable medical record
-The user can keep a database of medical notes in order to work with them later or submit them when a more appropriate location when becomes available. Useful when the medical record system goes offline, etc. Currently notes can be saved and loaded, but can't be searched directly from the editor.
+The user can keep a small "database" of medical notes in order to work with them later, or submit them when a more appropriate location when becomes available.
+Useful when the medical record system goes offline or the like.
 ### Other features
 Feel free to contribute or request any features you might find useful for your particular work environment.
