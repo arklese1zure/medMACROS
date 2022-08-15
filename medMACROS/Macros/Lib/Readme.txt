@@ -1,6 +1,5 @@
 medMACROS depends on several AHK libraries, which need to be placed in this folder:
 
-•Acc.ahk by Sean / update by jethrow - https://autohotkey.com/board/topic/77303-acc-library-ahk-l-updated-09272012/
 •Gdip.ahk by tariqporter - https://github.com/tariqporter/Gdip/
 •TF.ahk by hi5 - https://github.com/hi5/TF
 •CSV.ahk by trueski, Kdoske, hi5 - https://github.com/hi5/CSV

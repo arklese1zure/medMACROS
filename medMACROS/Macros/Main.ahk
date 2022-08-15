@@ -11,6 +11,7 @@
 path := A_ScriptDir
 path := RegExReplace(path,"[^\\]+\\?$")
 SetWorkingDir %path%
+
 SetTitleMatchMode, 1
 DetectHiddenWindows, On
 StringCaseSense, On
@@ -45,6 +46,7 @@ folder_UserFiles :=		A_WorkingDir . "\Files"											; Folder for user files.
 folder_Autotext :=		A_WorkingDir . "\Files\Autotext"
 file_Hotstrings :=		A_WorkingDir . "\Macros\Dictionaries\Active.ahk"
 folder_Documentation :=	A_WorkingDir . "\Macros\Docs"
+folder_Patients :=		A_WorkingDir . "\Patients"
 folder_Icons  :=		A_WorkingDir . "\Macros\Icons"
 file_Settings :=		A_WorkingDir . "\Macros\Settings\Settings.ini"					; Settings.
 loginDataFile :=		A_WorkingDir . "\Macros\Userdata\UserData.ini"					; Saved user data from settings.
