@@ -88,7 +88,7 @@ GoSub, DictReadSettings																	; Load dictionary data.
 
 MainGUI_Tabs := tabNames_1 . "|" . tabNames_2 . "|" . tabNames_3 . "|" . tabNames_4 . "|" . tabNames_5
 if (plugin_TabEnabled = TRUE)
-	MainGUI_Tabs := MainGUI_Tabs . plugin_TabName
+	MainGUI_Tabs := MainGUI_Tabs . "|" . plugin_TabName
 
 Settings_Tabs := gui_settings_tabs_1 . "|" . gui_settings_tabs_2 . "|"
 if (plugin_SettingsTabEnabled = TRUE)
